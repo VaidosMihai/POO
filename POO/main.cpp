@@ -6,24 +6,29 @@
 
 int main()
 {
-    std::cout<<"Acestia sunt angajatii:";
+    std::cout<<"Angajatii magazinului:";
     Angajat A("Grigore",1,1);
     Angajat B("Andreea",2,1);
     Angajat C("Jon",3,2);
 
     std::cout<<"\n";
 
-    Filme D("Horror","Vampires",10.55,23,18);
-    D.informatii();
-    Filme E("Actiune","X-Men",15.55,0,18);
-    E.informatii();
-    Filme F("Aventura","WALL-E",20,5,14);
-    F.informatii();
-    Filme G("Comedie","Cars",18.55,14,12);
-    G.informatii();
+    Filme film1 ("Cars", 12 ,18.55,12);
+    std::cout<<film1;
+    Filme film2 ("X-MAN", 18,15.55,0);
+    std::cout<<film2;
+    Filme film3 ("WALL-E",14,20,5);
+    std::cout<<film3;
+    Filme film4 ("Vampire",18,10.55,23);
+    std::cout<<film4;
 
-    std::cout<<"\n";
+    Client client1("George",18);
+    client1.cumpara(film1);
+    client1.cumpara(film2);
+    client1.vizioneaza(film1);
 
-    Client H("Bogdan",15,"Cars");
-    Client I("George",18,"X-Men");
+    std::cout << client1 << std::endl;
+
+
+    return 0;
 }

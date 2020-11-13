@@ -1,3 +1,4 @@
+git rm POO/cmake-build-debug
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
