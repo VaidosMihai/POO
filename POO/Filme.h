@@ -2,8 +2,8 @@
 // Created by mihai on 11/3/2020.
 //
 #include <iostream>
-#ifndef POO_FILME_H
-#define POO_FILME_H
+#ifndef POO_FILM_H
+#define POO_FILM_H
 class Film {
     std::string nume;
     int varsta_necesara;
@@ -70,4 +70,4 @@ std::ostream& operator<<(std::ostream& out,Filme& f)
     return out;
 }//AFISARE STOC SI CATEGORIE VARSTA
 
-#endif //POO_FILME_H
+#endif //POO_FILM_H
