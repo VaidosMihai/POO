@@ -4,18 +4,18 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Filme.h"
+#include "Film.h"
 #ifndef POO_CLIENT_H
 #define POO_CLIENT_H
 
 class Client {
     std::string nume_client;
     int varsta;
-    std::vector<Filme> film;
+    std::vector<Film> film;
 public:
     Client(std::string,int);
-    void cumpara(Filme& film);
-    void vizioneaza(Filme& film);
+    void cumpara(Film& film);
+    void vizioneaza(Film& film);
     friend std::ostream& operator<<(std::ostream& out, const Client& c);
 }; //CLASA CLIENT
 
@@ -26,12 +26,12 @@ Client::Client(std::string NUME,int VARSTA) //CITIRE CLIENT
     std::cout<<"\nClientul nostru "<<this->nume_client<<" are varsta de "<<this->varsta;
 }
 
-void Client::cumpara(Filme& f)  //ADAUGA UN FILM IN COLECTIE
+void Client::cumpara(Film& f)  //ADAUGA UN FILM IN COLECTIE
 {
     film.push_back(f);
 }
 
-void Client::vizioneaza(Filme& f) //VIZIONEAZA PRIMUL FILM DIN COLECTIE
+void Client::vizioneaza(Film& f) //VIZIONEAZA PRIMUL FILM DIN COLECTIE
 {
     film.erase(film.begin());
 }
