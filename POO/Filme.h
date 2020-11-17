@@ -13,14 +13,23 @@ class Film{
 public:
     Film(std::string numele, int varsta, float pret, int stocul);
     std::string get_name() const;
+    double get_pret();
     std::string informatii();
     bool in_stoc();
     void citire(std::string numele,int varsta,float pret,int stoc);
     friend std::ostream& operator<<(std::ostream& ostr, const Film& stud);
+    friend class Client;
 }; //CLASA FILME
 
 //========FUNCTII============
-
+double Film::get_pret()
+{
+    return pret;
+}
+std::string Film::get_name() const
+{
+    return nume;
+}
 std::ostream& operator<<(std::ostream& out, const Film& f);
 
 Film::Film(std::string numele, int varsta, float pretul, int stocul)
@@ -36,11 +45,6 @@ void Film::citire(std::string numele,int varsta,float pretul,int stocul)
     stoc=stocul;
     std::cout<<"\nNume film: "<<this->nume<<"\nVarsta necesara: "<<this->varsta_necesara<<"\nPret: "<<this->pret<<"\nStoc: "<<this->stoc<<"\n";
 }//CITIRE FILME
-
-std::string Film::get_name() const
-{
-    return nume;
-}
 
 std::string Film:: informatii()
 {
