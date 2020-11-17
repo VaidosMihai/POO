@@ -9,15 +9,28 @@ class Angajat{
     std::string nume_angajat;
     int id;
     int schimb;
+    int bani_caserie;
 public:
-    Angajat(std::string,int,int);
+    void adauga_caserie(Film& f);
+    int get_bani() const;
+    Angajat(std::string,int,int,int);
     Angajat(Angajat&);
 };
-Angajat::Angajat(std::string nume_angajat,int id,int schimb)
+
+//========FUNCTII============
+int Angajat::get_bani() const
 {
-    this->nume_angajat=nume_angajat;
-    this->id=id;
-    this->schimb=schimb;
+    return bani_caserie;
+}
+void Angajat::adauga_caserie(Film& f)
+{
+    bani_caserie=bani_caserie+f.get_pret();
+}
+Angajat::Angajat(std::string NUME,int ID,int SCHIMB,int bani_caserie=0)
+{
+    this->nume_angajat=NUME;
+    this->id=ID;
+    this->schimb=SCHIMB;
     std::cout<<"\nNume: "<<this->nume_angajat<<"\nid: "<<this->id<<"\nSchimbul: "<<this->schimb;
 }
 Angajat::Angajat(Angajat& X)
