@@ -43,7 +43,7 @@ void Client::cumpara(Film& f)
 
 void Client::vizioneaza(Film& f)
 {
-    std::cout<<"\nA vazut filmul "<<f.get_name()<<" .";
+    std::cout<<"Tocmai a vazut filmul "<<f.get_name()<<" .";
     for (int i=0; i<film.size(); ++i)
         if (film[i].get_name()==f.get_name())
             film.erase(film.begin()+i);
@@ -53,12 +53,11 @@ std::ostream& operator<<(std::ostream& out, const Client& c)
 {
     out << "\nColectia de filme a clientului contine :\n";
 
-    copy(begin(c.film), end(c.film) - 1,std::ostream_iterator<Film>(out, ","));
-
-    if (c.film.size() > 0)
+    for(int i=c.film.size();i>0;i--)
     {
-        out << c.film.at(c.film.size() - 1) << ' ';
+        out<<c.film.at(c.film.size()-i)<<" ";
     }
+
     out<<"\n"<<c.nume_client<<" mai are "<<c.buget<<" de lei in portofel.";
     return out;
 }//AFISEAZA COLECTIA DE FILME
