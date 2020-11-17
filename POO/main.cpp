@@ -13,21 +13,24 @@ int main()
 
     std::cout<<"\n";
 
-    Filme film1 ("Cars", 12 ,18.55,12);
+    Film film1 ("Cars", 12 ,18.55,12);
     std::cout<<film1;
-    Filme film2 ("X-MAN", 18,15.55,0);
+    Film film2 ("X-MAN", 18,15.55,0);
     std::cout<<film2;
-    Filme film3 ("WALL-E",14,20,5);
+    Film film3 ("WALL-E",14,20,5);
     std::cout<<film3;
-    Filme film4 ("Vampire",18,10.55,23);
+    Film film4 ("Vampire",18,10.55,23);
     std::cout<<film4;
 
-    Client client1("George",18);
-    client1.cumpara(film1);
-    client1.cumpara(film2);
-    client1.vizioneaza(film1);
+    Client client1("George",18,100);
 
-    std::cout << client1 << std::endl;
+    client1.cumpara(film1);
+    A.adauga_caserie(film1);
+    client1.cumpara(film2);
+    client1.cumpara(film3);
+    client1.cumpara(film4);
+    std::cout << client1 << std::endl; // afiseaza colectie filme client curenta
+    client1.vizioneaza(film3);
 
 
     return 0;
