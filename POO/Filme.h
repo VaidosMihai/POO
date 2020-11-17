@@ -17,37 +17,25 @@ public:
     std::string informatii();
     bool in_stoc();
     void citire(std::string numele,int varsta,float pret,int stoc);
-    Film &operator=(const Film &);
     friend std::ostream& operator<<(std::ostream& ostr, const Film& stud);
-    
+    friend class Client;
 }; //CLASA FILM
 
 //========FUNCTII============
-
-Film &Film::operator=(const Film &f) {
-    this->nume = f.nume;
-    this->varsta_necesara = f.varsta_necesara;
-    this->pret = f.pret;
-    this->stoc=f.stoc;
-    return (*this);
-} //OPERATOR ( = )
+double Film::get_pret()
+{
+    return pret;
+}
+std::string Film::get_name() const
+{
+    return nume;
+}
+std::ostream& operator<<(std::ostream& out, const Film& f);
 
 Film::Film(std::string numele, int varsta, float pretul, int stocul)
 {
     citire(numele,varsta,pretul,stocul);
 }
-
-double Film::get_pret()
-{
-    return pret;
-} //RETURNEAZA PRET FILM
-
-std::string Film::get_name() const
-{
-    return nume;
-}// RETURNEAZA NUMELE FILMULUI
-
-std::ostream& operator<<(std::ostream& out, const Film& f);
 
 void Film::citire(std::string numele,int varsta,float pretul,int stocul)
 {

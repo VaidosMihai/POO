@@ -29,7 +29,7 @@ int main()
     client1.cumpara(film2);
     client1.cumpara(film3);
     client1.cumpara(film4);
-    std::cout << client1 << std::endl; // afiseaza colectie filme client curenta
+    std::cout << client1 << std::endl; // afiseaza colectie filme client
     client1.vizioneaza(film3);
 
 
