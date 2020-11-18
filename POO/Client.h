@@ -20,6 +20,9 @@ public:
     void scade_buget(Film& f);
     friend std::ostream& operator<<(std::ostream& out, const Client& c);
 }; //CLASA CLIENT
+
+//========FUNCTII============
+
 void Client::scade_buget(Film& f)
 {
     buget=buget-f.get_pret();

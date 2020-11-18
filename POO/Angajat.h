@@ -14,18 +14,20 @@ public:
     Angajat(std::string,int,float);
     Angajat(Angajat&);
     friend std::ostream& operator<<(std::ostream& out, const Angajat& a);
-};
+};//CLASA ANGAJAT
 
 //========FUNCTII============
 std::ostream& operator<<(std::ostream& out, const Angajat& a)
 {
     out<<a.nume_angajat<<" a facut vanzari in total de "<<a.bani_caserie<<" de lei.\n";
     return out;
-}
+}//AFISEAZA BANII PE CARE I-A FACUT UN ANGAJAT
+
 void Angajat::adauga_caserie(Film& f)
 {
     bani_caserie=bani_caserie+f.get_pret();
-}
+}//ADAUGA BANII IN CASERIA UNUI ANGAJAT
+
 Angajat::Angajat(std::string NUME,int ID,float bani=0)
 {
     this->nume_angajat=NUME;
