@@ -14,12 +14,12 @@ public:
     Film(std::string numele, int varsta, float pret, int stocul);
     std::string get_name() const;
     double get_pret();
-    std::string informatii();
-    bool in_stoc();
+    std::string informatii()const;
+    bool in_stoc()const;
+    int varst_necesara();
     void citire(std::string numele,int varsta,float pret,int stoc);
     Film &operator=(const Film &);
-    friend std::ostream& operator<<(std::ostream& ostr, const Film& stud);
-    
+    friend std::ostream& operator<<(std::ostream& out, const Film& f);
 }; //CLASA FILM
 
 //========FUNCTII============
@@ -36,6 +36,11 @@ Film::Film(std::string numele, int varsta, float pretul, int stocul)
 {
     citire(numele,varsta,pretul,stocul);
 }
+
+int Film::varst_necesara()
+{
+    return varsta_necesara;
+} //RETURNEAZA varsta_necesara pentru un film
 
 double Film::get_pret()
 {
@@ -58,14 +63,14 @@ void Film::citire(std::string numele,int varsta,float pretul,int stocul)
     std::cout<<"\nNume film: "<<this->nume<<"\nVarsta necesara: "<<this->varsta_necesara<<"\nPret: "<<this->pret<<"\nStoc: "<<this->stoc<<"\n";
 }//CITIRE FILME
 
-std::string Film:: informatii()
+std::string Film:: informatii()const
 {
     if(varsta_necesara == 18) return "Acest film este dedicat strict pentru adulti!\n";
     else if(varsta_necesara >= 14) return "Acest film poate fi vizionat numai cu acordul parintilor!\n";
     else return "Acest film este pentru copii!!\n";
 }//CATEGORII DE VARSTA
 
-bool Film:: in_stoc()
+bool Film:: in_stoc()const
 {
     return stoc > 0;
 }//DISPONIBILITATE
@@ -74,16 +79,16 @@ std::ostream& operator<<(std::ostream& out, const Film& f)
 {
     out << f.get_name();
     return out;
-}//AFISARE PENTRU VECTORUL DE FILME
+}//AFISARE NUMELE FILMELOR LA AFISAREA COLECTIE DE FILME
 
-std::ostream& operator<<(std::ostream& out,Film& f)
+std::ostream& operator<<(std::ostream& out, Film& f)
 {
-    out << f.get_name();
     if(f.in_stoc())out<<"\nDISPONIBIL\n";
     else out<<"\nSTOC EPUIZAT\n";
     out<<f.informatii();
     out<<"=====================================================";
     return out;
 }//AFISARE STOC SI CATEGORIE VARSTA
+
 
 #endif //POO_FILME_H
