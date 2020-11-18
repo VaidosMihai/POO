@@ -15,35 +15,48 @@ class Client {
     std::vector<Film> film;
 public:
     Client(std::string,int,double );
-    void cumpara(Film& f);
+    void cumpara(Film& f,Angajat& a);
     void vizioneaza(Film& f);
     void scade_buget(Film& f);
     friend std::ostream& operator<<(std::ostream& out, const Client& c);
 }; //CLASA CLIENT
+
+//========FUNCTII============
+
 void Client::scade_buget(Film& f)
 {
     buget=buget-f.get_pret();
 }//SCADE BUGETUL CLIENTULUI
+
 Client::Client(std::string numele,int varst,double bani)
 {
     this->nume_client = numele;
     this->varsta = varst;
     this->buget = bani;
-    std::cout<<"\nClientul nostru "<<this->nume_client<<" are varsta de "<<this->varsta;
+    std::cout<<"\nClientul nostru "<<this->nume_client<<" are varsta de "<<this->varsta<<" ani.\n";
 }//CITIRE CLIENT
 
-void Client::cumpara(Film& f)
+void Client::cumpara(Film& f,Angajat& a)
 {
-    scade_buget(f);
     //adauga_caserie(a);
-    film.push_back(f);
-    std::cout<<"\nA cumparat filmul "<<f.get_name()<<" .";
+    if(varsta>=f.varst_necesara())
+    {
+        if(f.in_stoc())
+        {
+            a.adauga_caserie(f);
+            scade_buget(f);
+            film.push_back(f);
+            std::cout<<"A cumparat filmul "<<f.get_name()<<". \n";
+        }
+        else std::cout<<f.get_name()<<" nu mai este in stoc. \n";
+    }
+    else std::cout<<"Nu a putut cumpara filmul "<<f.get_name()<<" pentru ca este prea mic. \n";
 
 }//ADAUGA UN FILM IN COLECTIE
 
 void Client::vizioneaza(Film& f)
 {
-    std::cout<<"Tocmai a vazut filmul "<<f.get_name()<<" .";
+    std::cout<<"Tocmai a vazut filmul "<<f.get_name()<<" .\n";
     for (int i=0; i<film.size(); ++i)
         if (film[i].get_name()==f.get_name())
             film.erase(film.begin()+i);
@@ -51,14 +64,15 @@ void Client::vizioneaza(Film& f)
 
 std::ostream& operator<<(std::ostream& out, const Client& c)
 {
-    out << "\nColectia de filme a clientului contine :\n";
+    out << "\nColectia de filme a lui "<<c.nume_client<<" contine :\n";
 
     for(int i=c.film.size();i>0;i--)
     {
         out<<c.film.at(c.film.size()-i)<<" ";
     }
 
-    out<<"\n"<<c.nume_client<<" mai are "<<c.buget<<" de lei in portofel.";
+    if(c.buget>0)out<<"\n"<<c.nume_client<<" mai are "<<c.buget<<" de lei in portofel.";
+    else out<<"\n"<<c.nume_client<<" a ramas fara bani. :(\n";
     return out;
 }//AFISEAZA COLECTIA DE FILME
 
