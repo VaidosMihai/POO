@@ -15,8 +15,7 @@ class Film{
     int stoc;
 
 public:
-    Film()=default;
-    ~Film()=default;
+
     Film(std::string numele, int varsta, float pret, int stocul);
     std::string get_name() const;
     double get_pret() const;
