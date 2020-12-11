@@ -4,17 +4,13 @@
 
 #include "../Headers/Film.h"
 
-Film &Film::operator=(const Film &f) {
-    this->nume = f.nume;
-    this->varsta_necesara = f.varsta_necesara;
-    this->pret = f.pret;
-    this->stoc=f.stoc;
-    return (*this);
-} //OPERATOR ( = )
+#include <utility>
+
+Film &Film::operator=(const Film &f) = default; //OPERATOR ( = )
 
 Film::Film(std::string numele, int varsta, float pretul, int stocul)
 {
-    nume=numele;
+    nume=std::move(numele);
     varsta_necesara = varsta;
     pret=pretul;
     stoc=stocul;
@@ -25,7 +21,7 @@ int Film::varst_necesara() const {
     return varsta_necesara;
 } //RETURNEAZA varsta_necesara pentru un film
 
-double Film::get_pret()
+double Film::get_pret() const
 {
     return pret;
 } //RETURNEAZA PRET FILM
@@ -40,7 +36,7 @@ std::ostream& operator<<(std::ostream& out, const Film& f)
         if(f.in_stoc())out<<"\nDISPONIBIL\n";
         else out<<"\nSTOC EPUIZAT\n";
         out<<f.informatii();
-        out<<"=====================================================";
+        out<<"-------------------------------------------------------------------";
         return out;
     //AFISARE STOC SI CATEGORIE VARSTA
 }

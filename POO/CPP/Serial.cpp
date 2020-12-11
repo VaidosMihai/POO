@@ -3,9 +3,11 @@
 //
 
 #include "../Headers/Serial.h"
-Serial::Serial(std::string numele, int varsta, float pret, int stocul, int sez,int ep) : Film(numele, varsta, pret, stocul),sezon(sez),episoade(ep)
+
+#include <utility>
+Serial::Serial(std::string numele, int varsta, float pret, int stocul, int sez,int ep) : Film(std::move(numele), varsta, pret, stocul),sezon(sez),episoade(ep)
 {
-    std::cout<<"\nSezonul: "<<this->sezon<<std::endl;
+    std::cout<<"\nSezonul: "<<this->sezon;
 }
 std::string Serial::informatii() const
 {
@@ -16,8 +18,10 @@ std::string Serial::informatii() const
 }
 std::ostream& operator<<(std::ostream& out, const Serial& s)
 {
-    if(s.in_stoc())out<<"\nEste DISPONIBIL\n";
-    else out<<"\nAre STOC EPUIZAT\n";
+    if(s.in_stoc())out<<"Este DISPONIBIL\n";
+    else out<<"STOC EPUIZAT\n";
     out<<s.informatii();
+    out<<"-------------------------------------------------------------------";
     return out;
+    //AFISARE STOC SI CATEGORIE VARSTA
 }

@@ -19,7 +19,7 @@ public:
     ~Film()=default;
     Film(std::string numele, int varsta, float pret, int stocul);
     std::string get_name() const;
-    double get_pret();
+    double get_pret() const;
     virtual std::string informatii()const;
     bool in_stoc()const;
     int varst_necesara() const;
