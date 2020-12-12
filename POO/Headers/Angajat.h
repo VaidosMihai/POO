@@ -16,10 +16,9 @@ class Angajat{
     float bani_caserie;
 
 public:
-    ~Angajat(){};
+    ~Angajat() = default;
     void adauga_caserie(Film& f);
     Angajat(std::string nume,std::string departament,float bani_caserie);
-    Angajat(Angajat&);
     friend std::ostream& operator<<(std::ostream& out, const Angajat& a);
 };//CLASA ANGAJAT
 

@@ -14,11 +14,11 @@
 class Client{
     std::string nume_client;
     int varsta;
-    double buget;
+    float buget;
     std::vector<Film> filme;
 public:
-    ~Client() {};
-    Client(std::string nume,int varst,double bani);
+    ~Client() = default;
+    Client(std::string nume,int varst,float bani);
     static void sterge_vector(Client &c);
     void cumpara(Film& f,Angajat& a);
     void vizioneaza(Film& f);

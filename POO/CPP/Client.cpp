@@ -9,7 +9,7 @@ void Client::scade_buget(Film& f)
     buget=buget-f.get_pret();
 }//SCADE BUGETUL CLIENTULUI
 
-Client::Client(std::string nume,int varst,double bani)
+Client::Client(std::string nume,int varst,float bani)
 {
     this->nume_client = nume;
     this->varsta = varst;
@@ -19,18 +19,21 @@ Client::Client(std::string nume,int varst,double bani)
 
 void Client::cumpara(Film& f,Angajat& a)
 {
-    if(varsta>=f.varst_necesara())
-    {
-        if(f.in_stoc())
+        if (varsta >= f.varst_necesara()) //verificare varsta necesara
         {
-            a.adauga_caserie(f);
-            scade_buget(f);
-            filme.push_back(f);
-            std::cout<<"A cumparat "<<f.get_name()<<". \n";
-        }
-        else std::cout<<f.get_name()<<" nu mai este in stoc. \n";
-    }
-    else std::cout<<"Nu a putut cumpara filmul "<<f.get_name()<<" pentru ca este prea mic. \n";
+
+            if (f.in_stoc()) //verificare daca este pe stoc
+            {
+                if(buget > f.get_pret()) //verificare daca clientul are suficienti bani
+                {
+                    a.adauga_caserie(f);
+                    scade_buget(f);
+                    filme.push_back(f);
+                    std::cout << "A cumparat " << f.get_name() << ". \n";
+                }
+                else std::cout<<"Nu poate cumpara filmul "<<f.get_name()<<" deoarece bani insuficienti.\n";
+            } else std::cout << f.get_name() << " nu mai este pe stoc. \n";
+        } else std::cout << "Nu indeplineste varsta necesara pentru " << f.get_name() << ".\n";
 
 }//ADAUGA UN FILM IN COLECTIE
 
