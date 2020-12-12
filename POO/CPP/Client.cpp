@@ -3,10 +3,7 @@
 //
 
 #include "../Headers/Client.h"
-Client::~Client()
-{
-    filme.clear();
-}
+
 void Client::scade_buget(Film& f)
 {
     buget=buget-f.get_pret();
@@ -44,7 +41,10 @@ void Client::vizioneaza(Film& f)
         if (filme[i].get_name()==f.get_name())
             filme.erase(filme.begin()+i);
 }//VIZIONEAZA FILM DIN COLECTIE
-
+void Client::sterge_vector(Client &c)
+{
+    c.filme.clear();
+}
 std::ostream& operator<<(std::ostream& out, const Client& c)
 {
     int max=c.filme.size();
@@ -62,5 +62,6 @@ std::ostream& operator<<(std::ostream& out, const Client& c)
     }
     if(c.buget>0)out<<".\n"<<c.nume_client<<" mai are "<<c.buget<<" de lei in portofel.";
     else out<<"\n"<<c.nume_client<<" a ramas fara bani.\n";
+    Client::sterge_vector(const_cast<Client &>(c));
     return out;
 }//AFISEAZA COLECTIA DE FILME

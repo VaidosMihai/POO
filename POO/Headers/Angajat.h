@@ -16,8 +16,7 @@ class Angajat{
     float bani_caserie;
 
 public:
-    Angajat()=default;
-    ~Angajat()=default;
+
     void adauga_caserie(Film& f);
     Angajat(std::string nume,std::string departament,float bani_caserie);
     Angajat(Angajat&);

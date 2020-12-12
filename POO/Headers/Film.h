@@ -15,7 +15,7 @@ class Film{
     int stoc;
 
 public:
-    virtual ~Film() = default;
+
     Film(std::string numele, int varsta, float pret, int stocul);
     std::string get_name() const;
     double get_pret() const;

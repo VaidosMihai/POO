@@ -5,6 +5,7 @@
 #include "../Headers/Serial.h"
 
 #include <utility>
+
 Serial::Serial(std::string numele, int varsta, float pret, int stocul, int sez,int ep) : Film(std::move(numele), varsta, pret, stocul),sezon(sez),episoade(ep)
 {
     std::cout<<"\nSezonul: "<<this->sezon;

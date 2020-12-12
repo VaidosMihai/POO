@@ -17,9 +17,9 @@ class Client{
     double buget;
     std::vector<Film> filme;
 public:
-    Client()=default;
-    ~Client();
+
     Client(std::string nume,int varst,double bani);
+    static void sterge_vector(Client &c);
     void cumpara(Film& f,Angajat& a);
     void vizioneaza(Film& f);
     void scade_buget(Film& f);
