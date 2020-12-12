@@ -21,7 +21,7 @@ int Film::varst_necesara() const {
     return varsta_necesara;
 } //RETURNEAZA varsta_necesara pentru un film
 
-double Film::get_pret() const
+float Film::get_pret() const
 {
     return pret;
 } //RETURNEAZA PRET FILM

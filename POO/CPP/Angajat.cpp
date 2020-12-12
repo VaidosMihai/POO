@@ -25,9 +25,3 @@ Angajat::Angajat(std::string nume,std::string identificare,float bani)
     this->bani_caserie=bani;
     std::cout<<"\nNume: "<<this->nume_angajat<<"\nDepartament: "<<this->departament;
 }
-Angajat::Angajat(Angajat& X)
-{
-    this->nume_angajat=X.nume_angajat;
-    this->departament=X.departament;
-    std::cout<<this->nume_angajat<<" "<<this->departament;
-}
