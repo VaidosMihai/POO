@@ -18,7 +18,7 @@ class Client{
     std::vector<Film> filme;
 public:
     Client()=default;
-    ~Client()=default;
+    ~Client();
     Client(std::string nume,int varst,double bani);
     void cumpara(Film& f,Angajat& a);
     void vizioneaza(Film& f);

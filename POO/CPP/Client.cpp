@@ -3,7 +3,10 @@
 //
 
 #include "../Headers/Client.h"
-
+Client::~Client()
+{
+    filme.clear();
+}
 void Client::scade_buget(Film& f)
 {
     buget=buget-f.get_pret();
