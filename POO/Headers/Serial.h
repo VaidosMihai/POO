@@ -15,7 +15,7 @@ class Serial:public Film
 public:
     //virtual ~Serial() = default;
     Serial(std::string numele, int varsta, float pret, int stocul, int sez, int episoade);
-    std::string informatii()const override;
+    std::string informatii()const;
 };
 
 #endif //POO_SERIAL_H
