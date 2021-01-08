@@ -3,8 +3,7 @@
 #include "Headers/Angajat.h"
 #include "Headers/Client.h"
 #include "Headers/Serial.h"
-
-
+#include "CPP/Builder_Film.cpp"
 int main() {
     std::cout << "Angajatii magazinului:";
     Angajat A("Grigore", "Filme Actiune", 0);
@@ -25,6 +24,11 @@ int main() {
     std::cout << s1;
     Serial s2("Regular Show", 10, 5.49, 20, 1, 10);
     std::cout << s2;
+    Film_builder fb;
+    FilmB f5;
+    f5 = fb.nume("Avangers").varsta_necesara(14).pret(13.55).stoc(4).build();
+    f5.AfisareFilmB();
+
     Client client1("George", 18, 100);
     client1.cumpara(f1, A);
     client1.cumpara(f2, A);

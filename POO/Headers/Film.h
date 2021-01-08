@@ -14,6 +14,8 @@ class Film {
     float pret;
     int stoc;
 
+    friend class Film_builder;
+
 public:
     virtual ~Film() = default;
 
@@ -32,6 +34,8 @@ public:
     Film &operator=(const Film &);
 
     friend std::ostream &operator<<(std::ostream &out, const Film &f);
+
+    void AfisareFilmB();
 }; //CLASA FILM
 
 #endif //POO_FILM_H
