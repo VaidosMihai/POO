@@ -9,17 +9,20 @@
 #include <string>
 #include "../Headers/Film.h"
 
-class Angajat{
+class Angajat {
 
     std::string nume_angajat;
     std::string departament;
-    float bani_caserie;
+    float bani_casierie;
 
 public:
     ~Angajat() = default;
-    void adauga_caserie(Film& f);
-    Angajat(std::string nume,std::string departament,float bani_caserie);
-    friend std::ostream& operator<<(std::ostream& out, const Angajat& a);
+
+    void adauga_caserie(Film &f);
+
+    Angajat(std::string nume, std::string departament, float bani_caserie);
+
+    friend std::ostream &operator<<(std::ostream &out, const Angajat &a);
 };//CLASA ANGAJAT
 
 #endif //POO_ANGAJAT_H

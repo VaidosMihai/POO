@@ -7,21 +7,18 @@
 #include <string>
 
 //========FUNCTII============
-std::ostream& operator<<(std::ostream& out, const Angajat& a)
-{
-    out<<a.nume_angajat<<" a facut vanzari in total de "<<a.bani_caserie<<" de lei.\n";
+std::ostream &operator<<(std::ostream &out, const Angajat &a) {
+    out << a.nume_angajat << " a facut vanzari in total de " << a.bani_casierie << " de lei.\n";
     return out;
 }//AFISEAZA BANII INCASATI DE UN ANGAJAT
 
-void Angajat::adauga_caserie(Film& f)
-{
-    bani_caserie=bani_caserie + f.get_pret();
+void Angajat::adauga_caserie(Film &f) {
+    bani_casierie = bani_casierie + f.get_pret();
 }//ADAUGA BANII IN CASERIA UNUI ANGAJAT
 
-Angajat::Angajat(std::string nume,std::string identificare,float bani)
-{
-    this->nume_angajat=nume;
-    this->departament=identificare;
-    this->bani_caserie=bani;
-    std::cout<<"\nNume: "<<this->nume_angajat<<"\nDepartament: "<<this->departament;
+Angajat::Angajat(std::string nume, std::string identificare, float bani) {
+    this->nume_angajat = nume;
+    this->departament = identificare;
+    this->bani_casierie = bani;
+    std::cout << "\nNume: " << this->nume_angajat << "\nDepartament: " << this->departament;
 }

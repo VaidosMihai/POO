@@ -11,20 +11,27 @@
 #include "../Headers/Film.h"
 #include "../Headers/Angajat.h"
 
-class Client{
+class Client {
     std::string nume_client;
     int varsta;
     float buget;
     std::vector<Film> filme;
 public:
     ~Client() = default;
-    Client(std::string nume,int varst,float bani);
+
+    Client(std::string nume, int varst, float bani);
+
     static void sterge_vector(Client &c);
-    void cumpara(Film& f,Angajat& a);
-    void vizioneaza(Film& f);
-    void scade_buget(Film& f);
+
+    void cumpara(Film &f, Angajat &a);
+
+    void vizioneaza(Film &f);
+
+    void scade_buget(Film &f);
+
     friend std::string Film::get_name() const;
-    friend std::ostream& operator<<(std::ostream& out, const Client& c);
+
+    friend std::ostream &operator<<(std::ostream &out, const Client &c);
 }; //CLASA CLIENT
 
 #endif //POO_CLIENT_H
