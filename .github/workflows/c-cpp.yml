@@ -2,25 +2,22 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: POO
-        
+
     steps:
     - uses: actions/checkout@v2
     - name: dependencies
       run:
-        sudo apt-get install -y valgrind cppcheck g++-9 gcovr
+        sudo apt update && sudo apt install -y valgrind cppcheck g++-9 gcovr
     - name: make
-      run: g++ *.cpp -o main -std=c++11 -Wall -Wextra -pedantic -Weffc++
+      run: g++ *.cpp sources/*.cpp -Iincludes -o main -std=c++14 -Wall -Wextra -pedantic -Weffc++
                 --coverage -fprofile-arcs -ftest-coverage -g -O0 -lm
     - name: cppcheck
       run:
@@ -34,7 +31,7 @@ jobs:
         gcov *.cpp
         mkdir cov/
         gcovr -r . --html --html-details -o cov/coverage.html --print-summary
-        mv -v cov/  ../public/
+        mv -v cov/  public/
     - name: deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
