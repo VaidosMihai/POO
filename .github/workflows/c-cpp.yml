@@ -2,22 +2,25 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    defaults:	
+      run:	
+        shell: bash	
+        working-directory: POO
     steps:
     - uses: actions/checkout@v2
     - name: dependencies
       run:
         sudo apt update && sudo apt install -y valgrind cppcheck g++-9 gcovr
     - name: make
-      run: g++ *.cpp sources/*.cpp -Iincludes -o main -std=c++14 -Wall -Wextra -pedantic -Weffc++
+      run: g++ *.cpp -o main -std=c++14 -Wall -Wextra -pedantic -Weffc++
                 --coverage -fprofile-arcs -ftest-coverage -g -O0 -lm
     - name: cppcheck
       run:
