@@ -17,6 +17,8 @@ public:
 
     Serial(std::string numele, int varsta, float pret, int stocul, int sez, int episoade);
 
+    std::string informatii() const override;
+
 };
 
 #endif //POO_SERIAL_H

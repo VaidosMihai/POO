@@ -3,6 +3,7 @@
 //
 
 #include "../Headers/Film.h"
+#include "../Headers/Client.h"
 
 #include <utility>
 
@@ -27,7 +28,9 @@ float Film::get_pret() const {
 
 std::string Film::get_name() const {
     return nume;
-}// RETURNEAZA NUMELE FILMULUI
+}
+
+// RETURNEAZA NUMELE FILMULUI
 
 std::ostream &operator<<(std::ostream &out, const Film &f) {
     if (f.in_stoc())out << "\nDISPONIBIL\n";

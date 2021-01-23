@@ -4,11 +4,10 @@
 #include "Headers/Client.h"
 #include "Headers/Serial.h"
 #include "CPP/Builder_Film.cpp"
+
 int main() {
     std::cout << "Angajatii magazinului:";
     Angajat A("Grigore", "Filme Actiune", 0);
-    Angajat B("Andreea", "Filme SF", 0);
-    Angajat C("Jon", "Filme Under 18", 0);
 
     std::cout << "\n";
 
@@ -39,12 +38,12 @@ int main() {
     std::cout << client1 << std::endl; // afiseaza colectie filme client
 
     Client client2("Aurel", 10, 20);
-    client2.cumpara(f3, B);
-    client2.cumpara(f1, B);
-    client2.cumpara(s1, B);
-    client2.cumpara(s2, B);
+    client2.cumpara(f3, A);
+    client2.cumpara(f1, A);
+    client2.cumpara(s1, A);
+    client2.cumpara(s2, A);
     std::cout << client2 << std::endl;
 
-    std::cout << "\nMagazin inchis \n" << A << B;
+    std::cout << "\nMagazin inchis \n" << A;
 
 }

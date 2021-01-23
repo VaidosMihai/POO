@@ -31,7 +31,6 @@ void Client::cumpara(Film &f, Angajat &a) {
                 std::cout << "Nu poate cumpara articolul \"" << f.get_name() << "\" deoarece nu are suficienti bani.\n";
         } else std::cout << f.get_name() << " nu mai este pe stoc. \n";
     } else std::cout << "Nu indeplineste varsta necesara pentru " << f.get_name() << ".\n";
-
 }//ADAUGA UN FILM IN COLECTIE
 
 void Client::vizioneaza(Film &f) {

@@ -9,6 +9,7 @@
 //========FUNCTII============
 std::ostream &operator<<(std::ostream &out, const Angajat &a) {
     out << a.nume_angajat << " a facut vanzari in total de " << a.bani_casierie << " de lei.\n";
+    out << a.obiectiv();
     return out;
 }//AFISEAZA BANII INCASATI DE UN ANGAJAT
 
@@ -21,4 +22,25 @@ Angajat::Angajat(std::string nume, std::string identificare, float bani) {
     this->departament = identificare;
     this->bani_casierie = bani;
     std::cout << "\nNume: " << this->nume_angajat << "\nDepartament: " << this->departament;
+}
+
+std::string Angajat::obiectiv() const {
+    std::string text;
+    try {
+        if (bani_casierie < 20) {
+            text = "Vanzari mici";
+            throw text;
+        }
+        if (bani_casierie > 20 && bani_casierie < 60) {
+            text = "Vanzari medii";
+            throw text;
+        }
+        if (bani_casierie > 60) {
+            text = "Vanzari bune";
+            throw text;
+        }
+    }
+    catch (std::string mesaj) {
+        std::cout << mesaj;
+    }
 }

@@ -23,6 +23,9 @@ public:
     Angajat(std::string nume, std::string departament, float bani_caserie);
 
     friend std::ostream &operator<<(std::ostream &out, const Angajat &a);
+
+    std::string obiectiv() const;
+
 };//CLASA ANGAJAT
 
 #endif //POO_ANGAJAT_H
