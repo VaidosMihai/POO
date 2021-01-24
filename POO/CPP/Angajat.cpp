@@ -41,6 +41,6 @@ std::string Angajat::obiectiv() const {
         }
     }
     catch (std::string mesaj) {
-        std::cout << mesaj;
+        return mesaj;
     }
 }
